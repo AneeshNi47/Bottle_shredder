@@ -4,7 +4,7 @@ import time
 phone = serial.Serial("/dev/ttyUSB0", baudrate=115200, timeout=1.0)  # setting connect to module with serial port
 
 local_contact_no = input("Enter Contact No.: ")  # local variables created to debug this code 
-local_message = input("Enter message(less than 50 words)")  # local variables created to debug this code
+local_message = input("Enter message(less than 50 words):")  # local variables created to debug this code
 
 
 def send_sms(contact_no, message):
@@ -18,7 +18,7 @@ def send_sms(contact_no, message):
     print(result)
     time.sleep(1)
 
-    phone.write('{0}'.format(message) + '\r\n')  # sending message from function
+    phone.write(message + '\r\n')  # sending message from function
     result = phone.read(10)
     print(result)
 
