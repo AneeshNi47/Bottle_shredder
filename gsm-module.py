@@ -8,6 +8,9 @@ local_message = input("Enter message(less than 50 words):")  # local variables c
 
 
 def send_sms(contact_no, message):
+    contact_no = contact_no.encode()
+    message = message.encode()
+
     phone.write('AT+CMGF=1' + '\r\n')  # setting SIM900 Module to Text Mode
     result = phone.read(10)
     print(result)
